@@ -1,0 +1,30 @@
+{
+  "name": "@archisquad/renovate-config",
+  "version": "1.0.0",
+  "description": "Renovate configuration for archisquad",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:archisquad/renovate-config.git"
+  },
+  "maintainers": [
+    {
+      "name": "Mateusz Gostański",
+      "email": "mateusz.gostanski@gmail.com"
+    }
+  ],
+  "scripts": {
+    "test": "renovate-config-validator ./default.json",
+    "prepare": "husky install"
+  },
+  "files": [
+    "default.json"
+  ],
+  "devDependencies": {
+    "husky": "8.0.3",
+    "@commitlint/cli": "17.8.0",
+    "commitlint-config-gitmoji": "2.3.1",
+    "gitmoji-cli": "8.5.0",
+    "renovate": "37.27.1"
+  }
+}

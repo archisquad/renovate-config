@@ -1,0 +1,66 @@
+{
+  "extends": [
+    "config:base",
+    ":semanticCommitTypeAll(chore)"
+  ],
+  "branchPrefix": "deps/",
+  "baseBranches": [
+    "main"
+  ],
+  "rangeStrategy": "bump",
+  "npm": {
+    "commitMessageTopic": "{{prettyDepType}} {{depName}}",
+    "commitMessagePrefix": ":arrow_up: chore(deps):"
+  },
+  "nvm": {
+    "enabled": false
+  },
+  "schedule": [
+    "after 2am and before 3am"
+  ],
+  "ignoreDeps": [
+    "node"
+  ],
+  "packageRules": [
+    {
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch",
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
+      "matchDepTypes": [
+        "dependencies",
+        "devDependencies"
+      ],
+      "automerge": true
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "groupName": "all ci dependencies",
+      "groupSlug": "ci-all-minor-patch",
+      "commitMessageTopic": "{{prettyDepType}} {{depName}}",
+      "commitMessagePrefix": ":construction_worker: ci(deps):",
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "matchDepTypes": [
+        "dependencies",
+        "devDependencies"
+      ],
+      "automerge": false
+    },
+    {
+      "matchDepTypes": [
+        "peerDependencies",
+        "engines"
+      ],
+      "enabled": false
+    }
+  ]
+}
