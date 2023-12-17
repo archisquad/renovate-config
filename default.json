@@ -16,10 +16,14 @@
     "enabled": false
   },
   "schedule": [
-    "after 2am and before 3am"
+    "before 4am"
+  ],
+  "automergeSchedule": [
+    "before 4am"
   ],
   "ignoreDeps": [
-    "node"
+    "node",
+    "@types/node"
   ],
   "packageRules": [
     {
