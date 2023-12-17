@@ -9,7 +9,7 @@ Create `renovate.json` file in your repository with below content:
 ```json
 {
   "extends": [
-    "github>ArchiTower/renovate-config"
+    "github>archisquad/renovate-config"
   ]
 }
 ```
